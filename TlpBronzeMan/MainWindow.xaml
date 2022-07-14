@@ -1,0 +1,43 @@
+﻿<Window x:Name="TlpBronzeManMainWindow" x:Class="TlpBronzeMan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Legacy Pack Bronzeman Save Backup" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" Icon="isb.ico" UseLayoutRounding="True" WindowStyle="ThreeDBorderWindow">
+    <Grid Width="700" Height="280">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="379*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" x:Name="SaveLocationLabel" Content="WoTC Save Folder" HorizontalAlignment="Left" Margin="30,25,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="0" x:Name="BackupLocationLabel" Content="Backup Root Folder" HorizontalAlignment="Left" Margin="30,59,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="0" x:Name="NumToKeepLabel" Content="Backups to Keep" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,92,0,0"/>
+        <Label Grid.Column="0" x:Name="RestoreBackupLabel" Content="Restore Backup" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="100"/>
+        <Label x:Name="MostRecentBackup" x:FieldModifier="public" Content="N/A" IsEnabled="False" HorizontalContentAlignment="Left"  HorizontalAlignment="Left" Margin="210,240,0,0" VerticalAlignment='Top' Width="450" Grid.ColumnSpan="3"
+               Grid.Column="0" />
+        <Label Grid.Column="0" x:Name="MostRecentLabel" Content="Most Recent Backup" HorizontalAlignment="Left" Margin="30,240,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Button Grid.Column="0" x:Name="StartButton" Content="Start Backup" Click="StartButton_OnClick" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="30,172,0,0"/>
+        <Button Grid.Column="0" x:Name="StopButton" Content="Stop Backup" Click="StopButton_OnClick" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="135,172,0,0"/>
+
+        <Button x:Name="ForceBackupButton" Content="Force Backup" Click="ForceBackupButton_OnClick" HorizontalAlignment="Left" Margin="240,172,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="3"
+                Grid.Column="0" />
+        <Button Grid.Column="0" x:Name="OpenSaveButton" Content="Open Save Directory" Click="OpenSaveButton_OnClick"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="30,206,0,0"/>
+        <Button x:Name="OpenBackupButton" Content="Open Backup Directory" Click="OpenBackupButton_OnClick" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="190,206,0,0" Grid.ColumnSpan="3"
+                Grid.Column="0" />
+        <Button x:Name="DeleteBackupButton" Click="DeleteBackupButton_OnClick" Content="Delete All Backups" HorizontalAlignment="Left" Background="Red" Foreground="Black" VerticalAlignment="Top" Width="160" Margin="179,172,0,0" Grid.Column="2"/>
+        <Button x:Name="RestoreBackupButton" Content="Restore Selected Backup" Click="RestoreBackupButton_OnClick"  HorizontalAlignment="Left" Margin="24,172,0,0" VerticalAlignment="Top" Width="150" Grid.Column="2"/>
+
+        <TextBox x:Name="SaveTextbox"  PreviewMouseLeftButtonDown="SaveTextbox_Click" ToolTip="This is usually found in My Documents/My Games/XCOM2 War of the Chosen/XComGame/SaveData." Height="25" Margin="210,25,40,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="450" FontSize="10" Grid.ColumnSpan="3"
+                 Grid.Column="0" />
+        <TextBox x:Name="BackupTextbox" PreviewMouseLeftButtonUp="BackupTextbox_Click" Height="24" TextWrapping="Wrap"  Text="" VerticalAlignment="Top" Width="450" Margin="210,60,40,0" FontSize="10" Grid.ColumnSpan="3"
+                 Grid.Column="0" />
+        <TextBox x:Name="RestoreBackupText" PreviewMouseLeftButtonDown="RestoreBackupText_OnPreviewMouseLeftButtonDown" Margin="210,0,40,0" VerticalAlignment="Center" Width="450" Height="26" FontSize="10" Grid.ColumnSpan="3"
+                 Grid.Column="0" />
+        <TextBox x:Name="MaxBackupTextbox" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="{Binding ElementName=MaxBackupSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" VerticalAlignment="Top" Width="70" Margin="269,92,0,0" Grid.Column="2"/>
+        <Slider x:Name="MaxBackupSlider" ToolTip="Select 0 to keep all backups. When the limit is reached the oldest backup will be deleted." Minimum="0" Maximum="20" TickFrequency="1" ValueChanged="BackupKeepSlider_OnValueChanged"  IsSnapToTickEnabled="True" IsMoveToPointEnabled="True"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="210,95,0,0" Width="375" Grid.ColumnSpan="3"
+                Grid.Column="0" />
+    </Grid>
+</Window>
