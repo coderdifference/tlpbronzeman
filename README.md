@@ -22,13 +22,17 @@ The timestamp ensures that subsequent attempts of the same turn or exiting to th
 You may start using the tool at any time, it does not need to be open when you start the game itself, however it must be running and save monitoring started in order to capture new saves.
 
 1. Set the save game path.
-   1.1  Click the text box next to "WoTC Save Folder" to open a folder browser.
-   1.2  Navigate to the location where your game is creating saves (something like C:\Users\{your user}\Documents\My Games\XCOM2 War of the Chosen\XComGame\SaveData)
-   1.3  Click "Select Folder"
+   
+* Click the text box next to "WoTC Save Folder" to open a folder browser.
+* Navigate to the location where your game is creating saves (something like C:\Users\{your user}\Documents\My Games\XCOM2 War of the Chosen\XComGame\SaveData)
+* Click "Select Folder"
+
 2. Set the backup path (the root path where the backup folder structure and saves will be created)
-   2.1  Click the text box next to "Backup Root Folder" to open a folder browser
-   2.2  Navigate to where you want to store your save game backups
-   2.3  Click "Select Folder"
+
+* Click the text box next to "Backup Root Folder" to open a folder browser
+* Navigate to where you want to store your save game backups
+* Click "Select Folder"
+
 3. Press the "Start Backup" button, the tool will begin monitoring for new saves
 4. Play the game
 
